@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import web.models.Car;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,27 +27,34 @@ public class CarController {
     }
     @GetMapping("/cars")
     public String showCarList (@RequestParam(value = "count", required = false) Integer count, Model model) {
-        if (count == null || count >= 5) {
-            model.addAttribute("message",makeFiveCar());
-        } else if (count == 2) {
-            model.addAttribute("message", makeFiveCar().get(0) + "\n" + makeFiveCar().get(1));
-        } else if (count == 3) {
-            model.addAttribute("message",
-                    makeFiveCar().get(0) +
-                            "\n" +
-                            makeFiveCar().get(1) +
-                            "\n" +
-                            makeFiveCar().get(2) );
-
+//        if (count == null || count >= 5) {
+//            model.addAttribute("message",makeFiveCar());
+//        } else if (count == 2) {
+//            model.addAttribute("message", makeFiveCar().get(0) + "\n" + makeFiveCar().get(1));
+//        } else if (count == 3) {
+//            model.addAttribute("message",
+//                    makeFiveCar().get(0) +
+//                            "\n" +
+//                            makeFiveCar().get(1) +
+//                            "\n" +
+//                            makeFiveCar().get(2) );
+//
+//        } else if (count == 4) {
+//            model.addAttribute("message",
+//                    makeFiveCar().get(0) +
+//                            "\n" +
+//                            makeFiveCar().get(1) +
+//                            "\n" +
+//                            makeFiveCar().get(2) +
+//                    "\n" +
+//                            makeFiveCar().get(3) );
+//        }
+        if (count == null || count == 5) {
+            model.addAttribute("cars", makeFiveCar());
         } else if (count == 4) {
-            model.addAttribute("message",
-                    makeFiveCar().get(0) +
-                            "\n" +
-                            makeFiveCar().get(1) +
-                            "\n" +
-                            makeFiveCar().get(2) +
-                    "\n" +
-                            makeFiveCar().get(3) );
+            model.addAttribute("cars", makeFiveCar());
+
+            return "car/car4";
         }
         return "car/cars";
     }
