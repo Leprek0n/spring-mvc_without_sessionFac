@@ -25,6 +25,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:db.properties")
+//@ComponentScan("web")
 public class HibernateUtil {
     @Resource
     private Environment env;

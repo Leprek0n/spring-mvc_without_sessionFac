@@ -1,18 +1,14 @@
 package web.dao;
 
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Component;
-
+import org.springframework.transaction.annotation.Transactional;
 import web.models.User;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
+
 @Component
 @Transactional
 public class UsersDao implements UsersDaoInterface{
