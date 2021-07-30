@@ -38,7 +38,7 @@ public class HibernateUtil {
         dataSource.setPassword(env.getProperty("jdbc.username"));
         dataSource.setUsername(env.getProperty("jdbc.password"));
 
-        dataSource.setInitialSize(Integer.valueOf(env.getRequiredProperty("db.InitialSize")));
+        dataSource.setInitialSize(Integer.valueOf(env.getRequiredProperty("db.initialSize")));
         dataSource.setMinIdle(Integer.valueOf(env.getRequiredProperty("db.minIdle")));
         dataSource.setMaxIdle(Integer.valueOf(env.getRequiredProperty("db.maxIdle")));
         dataSource.setTimeBetweenEvictionRunsMillis(Long.valueOf(env.getRequiredProperty("db.timeBetweenEvictionRunsMillis")));
